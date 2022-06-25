@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="md5.js"></script>
+    <title>md5数据加密</title>
+</head>
+
+<body>
+    <div class="box">
+        <div>
+            <form action="#" method="post" id="loginForm">
+                用户名：<input type="text" name="username" id="username"><br>
+                密 码：<input type="password" name="pazzword" id="pazzword"><br>
+                <button type="button" onclick="checkForm()">提交</button>
+            </form>
+        </div>
+    </div>
+</body>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .box {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .box>div {
+        width: 500px;
+        height: 500px;
+        background-color: antiquewhite;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+<script>
+    function checkForm() {
+        /*   var username = $("#username").val();
+          var pazzword = $("#pazzword").val(); */
+        var username = document.getElementById("username").value;
+        var pazzword = document.getElementById("pazzword").value;
+        var str1 = hex_md5(username);
+        var str2 = b64_md5(username);
+        var str3 = str_md5(username);
+        var str4 = hex_hmac_md5(username, username);
+        var str5 = b64_hmac_md5(pazzword, pazzword);
+        var str6 = str_hmac_md5(username, username);
+        console.log(username + "___" + pazzword);
+        console.log(str1);
+        console.log(str2);
+        console.log(str3);
+        console.log(str4);
+        console.log(str5);
+        console.log(str6);
+    }
+
+</script>
+
+</html>
